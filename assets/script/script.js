@@ -19,6 +19,7 @@ let nome = document.querySelector('#nome');
 let email = document.querySelector('#email');
 let assunto = document.querySelector('#assunto');
 let button = document.querySelector('#envio')
+let msg = document.querySelector('#msg')
 
 let nomeOk = false;
 let emailOk = false;
@@ -33,6 +34,7 @@ txtEmail.innerHTML = '&nbsp;';
 let txtAssunto = document.querySelector('#txtAssunto');
 let count = 0;
 txtAssunto.innerHTML = `Quantidade de caracteres: ${count}/100`;
+// txtAssunto.innerHTML = 'Quantidade de caracteres: ' + count + ' /100';
 
 function validaNome() {
   if (nome.value.length >= 3) {
@@ -48,17 +50,33 @@ function validaNome() {
   }
 }
 
+// function validaEmail() {
+//   if (email.value.indexOf('@') == -1 || email.value.indexOf('.') == -1) {
+//     email.style.borderBottom = '3px solid var(--dark-red)';
+//     email.style.color = 'var(--dark-red)';
+//     txtEmail.innerHTML = 'email inválido';
+//     emailOk = false;
+//   } else {
+//     email.style.borderBottom = '3px solid var(--green)';
+//     email.style.color = 'var(--green)';
+//     txtEmail.innerHTML = 'email válido';
+//     emailOk = true;
+//   }
+// }
+
 function validaEmail() {
-  if (email.value.indexOf('@') == -1 || email.value.indexOf('.') == -1) {
-    email.style.borderBottom = '3px solid var(--dark-red)';
-    email.style.color = 'var(--dark-red)';
-    txtEmail.innerHTML = 'email inválido';
-    emailOk = false;
-  } else {
+  let regex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/
+
+  if (email.value.match(regex)){
     email.style.borderBottom = '3px solid var(--green)';
     email.style.color = 'var(--green)';
     txtEmail.innerHTML = 'email válido';
     emailOk = true;
+  } else {
+    email.style.borderBottom = '3px solid var(--dark-red)';
+    email.style.color = 'var(--dark-red)';
+    txtEmail.innerHTML = 'email inválido';
+    emailOk = false;
   }
 }
 
@@ -80,9 +98,13 @@ function validaAssunto() {
 function enviar() {
   if (nomeOk == true && emailOk == true && assuntoOk == true) {
     button.style.backgroundColor = 'var(--green)'
-    alert('Formulário enviado com sucesso!');
+    msg.innerHTML = 'formulário enviado'
+    // alert('deu bom')
+    setTimeout('document.location.reload(true)', 2000)
   } else {
-    alert('Preencha o formulário corretamente antes de enviar...');
+    msg.innerHTML = 'Preencha o formulário corretamente antes de enviar...'
+    // alert('deu ruim')
+    setTimeout('document.location.reload(true)', 2000)
   }
 }
 
@@ -93,3 +115,12 @@ window.addEventListener('keyup', ()=>{
     button.style.backgroundColor = 'var(--dark-red)'
   }
 })
+
+function timer() {
+  msg.innerHTML = 'Aguarde, enviando sua mensagem via pombo correio'
+  setTimeout('enviar()', 2500)
+}
+
+function dark() {
+  document.body.classList.toggle('light')
+}
