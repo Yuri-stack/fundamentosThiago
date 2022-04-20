@@ -6,6 +6,7 @@
   --text-accent: #8D99AE;
   --light-red: #EF233C;
   --dark-red: #D90429;
+  --green: #50C900;
 }
 
 * {
@@ -148,13 +149,17 @@ input, textarea {
   border: 0;
   border-bottom: 2px solid var(--dark-red);
   background-color: transparent;
-  margin-bottom: 1rem;
+  margin-bottom: .25rem;
   resize: none;
 }
 
 label {
   color: var(--text-accent);
   font-weight: 600;
+}
+
+#txtNome, #txtEmail, #txtAssunto {
+  margin-bottom: .5rem;
 }
 
 button {

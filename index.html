@@ -7,6 +7,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" href="./assets/images/icon.png" type="image/png">
+
+    
   </head>
   <body class="">
     <nav>
@@ -21,7 +23,7 @@
     </nav>
 
     <main>
-      <h1 class="titulo">Sobre o <span class="destaque">Thiago</span></h1>
+      <h1 class="titulo type-effect"></h1>
 
       <section class="sobre">
         <div class="sobre-texto">
@@ -70,6 +72,18 @@
       <hr>
       <p>Feito com muito amor e carinho (😎) por: <span class="destaque">Thiago Faccipieri - 2022</span></p>
     </footer>
+
+    <script src="https://unpkg.com/typeit@8.2.0/dist/index.umd.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new TypeIt(".type-effect", {
+          strings: ["sobre o Thiago "],
+          loop: true,
+          loopDelay: [500, 3000]
+        }).go()
+      });
+    </script>
 
   </body>
 </html>

@@ -6,6 +6,8 @@
     <title>Contato</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" href="./assets/images/icon.png" type="image/png">   
+
+    
   </head>
   <body>
     <nav>
@@ -24,19 +26,22 @@
     <main class="contact-page">
       <form>
         <label for="nome">Nome:</label> 
-        <input type="text" id="nome" />
+        <input type="text" id="nome" onkeyup="validaNome()" placeholder="Mínimo de 3 caracteres" />
+        <div id="txtNome"></div>
         
         
         
         <label for="email">E-mail:</label> 
-        <input type="email" id="email" />
+        <input type="email" id="email" onkeyup="validaEmail()" placeholder="Digite um e-mail válido" />
+        <div id="txtEmail"></div>
         
         
         <label for="assunto">Assunto:</label> 
-        <textarea name="assunto" id="assunto" rows="3"></textarea>
+        <textarea name="assunto" id="assunto" rows="3" onkeyup="validaAssunto()" placeholder="deixa uma mensagem legal ai..."></textarea>
+        <div id="txtAssunto"></div>
         
         
-        <button>Enviar</button>
+        <button id="envio" onclick="enviar()">Enviar</button>
       </form>
   
       <div class="contato">
@@ -59,5 +64,8 @@
       <hr>
       <p>Feito com muito amor e carinho (😎) por: <span class="destaque">Thiago Faccipieri - 2022</span></p>
     </footer>
+
+
+    <script src="./assets/script/script.js"></script>
   </body>
 </html>
